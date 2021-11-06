@@ -1,1 +1,3 @@
 .idea/
+project/settings_local.py
+project/settings.py
