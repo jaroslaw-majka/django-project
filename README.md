@@ -1,0 +1,1 @@
+# Django project worked during the Python bootcamp
