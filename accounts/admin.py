@@ -6,4 +6,13 @@ from accounts.models import ExtendedUser
 
 @admin.register(ExtendedUser)
 class ExtendedUserAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'username',
+        'email',
+
+    )
+
+    list_editable = (
+        'email',
+
+    )
