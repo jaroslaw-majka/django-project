@@ -1,3 +1,4 @@
 .idea/
 project/settings_local.py
 project/settings.py
+*__pycache__/
