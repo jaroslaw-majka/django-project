@@ -1,6 +1,10 @@
+# Django
 from django.contrib import admin
 
-from shops.models import Address, Order, Status
+# Project
+from shops.models import Address
+from shops.models import Order
+from shops.models import Status
 
 
 @admin.register(Address)

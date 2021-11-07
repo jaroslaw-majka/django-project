@@ -2,3 +2,5 @@
 project/settings_local.py
 project/settings.py
 *__pycache__/
+.flake8
+.isort.cfg
