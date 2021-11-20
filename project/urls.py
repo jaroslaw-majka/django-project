@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 # Project
-from shops.views import InvoiceListView, InvoiceDetailView
+from shops.views import InvoiceListView, InvoiceDetailView, InvoiceUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('invoices/', InvoiceListView.as_view()),
-    path('invoices/<int:pk>', InvoiceDetailView.as_view()),
+    path('invoices/', InvoiceListView.as_view(), name='invoice_list'),
+    path('invoices/<int:pk>/', InvoiceDetailView.as_view(), name='invoice_details'),
+    path('invoices/update/<int:pk>/', InvoiceUpdateView.as_view(), name='invoice_update'),
 ]
