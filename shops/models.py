@@ -5,6 +5,20 @@ from django.db import models
 from accounts.models import ExtendedUser
 
 
+class BaseObject(models.Model):
+    hidden = models.BooleanField(
+        'Ukryty',
+        default=False
+    )
+    deleted = models.BooleanField(
+        'Usunięty',
+        default=False
+    )
+
+    class Meta:
+        abstract = True
+
+
 class Address(models.Model):
     local_no = models.CharField(
         'nr lokalu',
@@ -177,7 +191,7 @@ class Product(models.Model):
         ordering = ['-price']
 
 
-class Invoice(models.Model):
+class Invoice(BaseObject):
     number = models.CharField(
         'numer',
         max_length=50
