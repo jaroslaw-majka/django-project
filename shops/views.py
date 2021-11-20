@@ -8,3 +8,4 @@ from shops.models import Invoice
 
 class InvoiceListView(ListView):
     model = Invoice
+    template = 'invoice_list.html'
