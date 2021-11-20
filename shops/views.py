@@ -1,6 +1,6 @@
 # Django
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView
 
 # Project
 from shops.models import Invoice
@@ -24,4 +24,11 @@ class InvoiceUpdateView(UpdateView):
     model = Invoice
     fields = '__all__'
     template_name = 'invoice_update.html'
+    success_url = reverse_lazy('invoice_list')
+
+
+class InvoiceCreateView(CreateView):
+    model = Invoice
+    fields = '__all__'
+    template_name = 'invoice_create.html'
     success_url = reverse_lazy('invoice_list')
