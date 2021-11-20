@@ -27,6 +27,10 @@ class Address(models.Model):
         max_length=10
     )
 
+    def __str__(self):
+        local = f'/{self.local_no}' if self.local_no else ''
+        return f'{self.street} {self.building}{local}, {self.zip_code} {self.city}'
+
 
 class Warehouse(models.Model):
     name = models.CharField(
