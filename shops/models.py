@@ -1,6 +1,8 @@
 # Django
 from django.db import models
 
+from accounts.models import ExtendedUser
+
 
 class Address(models.Model):
     local_no = models.CharField(
@@ -101,6 +103,12 @@ class Order(models.Model):
         blank=True,
         null=True
     )
+    client = models.ForeignKey(
+        ExtendedUser,
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
+    )
 
 
 class Discount(models.Model):
@@ -123,7 +131,10 @@ class ShippingMethod(models.Model):
 
 
 class PaymentMethod(models.Model):
-    pass
+    name = models.CharField(
+        'nazwa',
+        max_length=50
+    )
 
 
 class Product(models.Model):
@@ -138,4 +149,29 @@ class Product(models.Model):
         'stan magazynowy',
         blank=True,
         default=0
+    )
+    price = models.DecimalField(
+        'cena produktu',
+        decimal_places=2,
+        max_digits=5,
+        blank=True,
+        null=True
+    )
+
+
+class Invoice(models.Model):
+    number = models.CharField(
+        'numer',
+        max_length=50
+    )
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.CASCADE
+    )
+    created_date = models.DateField(
+        'data utowrzenia',
+        auto_now_add=True,
+    )
+    payment_date = models.DateField(
+        'data płatności',
     )
