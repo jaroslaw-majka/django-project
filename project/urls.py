@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path
 
 # Project
-from shops.views import InvoiceListView
+from shops.views import InvoiceListView, InvoiceDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('invoices/', InvoiceListView.as_view()),
+    path('invoices/<int:pk>', InvoiceDetailView.as_view()),
 ]

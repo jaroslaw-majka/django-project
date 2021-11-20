@@ -5,10 +5,10 @@
     <title>Invoices</title>
 </head>
 <body>
+    <p>Szczegóły mojej faktury {{object.number}}</p>
     <ul>
-        {% for invoice in object_list %}
-        <li>{{invoice.order}}</li>
-        {% endfor %}
+        <li>Numer: {{object.number}}</li>
+        <li>Zamówienie: {{object.order}}</li>
     </ul>
 </body>
 </html>
