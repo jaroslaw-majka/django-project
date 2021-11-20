@@ -31,6 +31,10 @@ class Address(models.Model):
         local = f'/{self.local_no}' if self.local_no else ''
         return f'{self.street} {self.building}{local}, {self.zip_code} {self.city}'
 
+    class Meta:
+        verbose_name = 'adres'
+        verbose_name_plural = 'adresy'
+
 
 class Warehouse(models.Model):
     name = models.CharField(
