@@ -1,6 +1,7 @@
 # Django
 from django.db import models
 
+# Project
 from accounts.models import ExtendedUser
 
 
@@ -146,6 +147,12 @@ class PaymentMethod(models.Model):
 
 
 class Product(models.Model):
+    name = models.CharField(
+        'nazwa',
+        max_length=10,
+        blank=True,
+        null=True
+    )
     order = models.ForeignKey(
         Order,
         verbose_name='zamówienie',
@@ -165,6 +172,9 @@ class Product(models.Model):
         blank=True,
         null=True
     )
+
+    class Meta:
+        ordering = ['-price']
 
 
 class Invoice(models.Model):

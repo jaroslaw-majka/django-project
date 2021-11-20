@@ -3,7 +3,9 @@ from django.contrib import admin
 
 # Project
 from shops.models import Address
+from shops.models import Invoice
 from shops.models import Order
+from shops.models import Product
 from shops.models import Status
 
 
@@ -19,4 +21,14 @@ class OrdersAdmin(admin.ModelAdmin):
 
 @admin.register(Status)
 class StatusAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Invoice)
+class InvoiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
     pass
