@@ -7,7 +7,7 @@
 <body>
     <ul>
         {% for invoice in object_list %}
-        <li>{{invoice.order}}</li>
+        <li>{{invoice.number}} - <a href="{% url 'invoice_update' invoice.id %}">Edycja</a></li>
         {% endfor %}
     </ul>
 </body>
